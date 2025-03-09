@@ -1,26 +1,23 @@
-import express, { json } from "express";
-import { get } from "axios";
-import cors from "cors";
+const express = require("express");
+const cors = require("cors");
+const axios = require("axios");
+
 require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
-app.use(json());
+app.use(express.json());
 
 app.get("/api/dashboard", async (req, res) => {
   try {
     const [githubProfile, githubRepos, customApiData] = await Promise.all([
-      get(`https://api.github.com/users/${process.env.GITHUB_USERNAME}`, {
-        headers: { Authorization: `token ${process.env.GITHUB_TOKEN}` },
-      }),
-
-      get(`https://api.github.com/users/${process.env.GITHUB_USERNAME}/repos`, {
-        headers: { Authorization: `token ${process.env.GITHUB_TOKEN}` },
-      }),
-
-      get(process.env.CUSTOM_API_URL),
+      axios.get(`https://api.github.com/users/${process.env.GITHUB_USERNAME}`),
+      axios.get(
+        `https://api.github.com/users/${process.env.GITHUB_USERNAME}/repos`,
+      ),
+      axios.get(process.env.CODING_TRACKER),
     ]);
 
     const profile = {
@@ -56,12 +53,40 @@ app.get("/api/dashboard", async (req, res) => {
         updatedAt: repo.updatedAt,
       }));
 
+    // Process coding stats data
+    const codingStats = customApiData.data;
+
+    // Calculate coding language distribution
+    const languageDistribution = codingStats.reduce((acc, day) => {
+      day.file_types.forEach((type) => {
+        acc[type.type] = (acc[type.type] || 0) + type.duration;
+      });
+      return acc;
+    }, {});
+
+    // Calculate daily coding time
+    const dailyCodingTime = codingStats.map((day) => ({
+      date: day._id,
+      duration: day.total_duration,
+    }));
+
     // Combine everything into a single response object
     const dashboardData = {
       profile,
       repos,
-      customData: customApiData.data,
+      codingStats: {
+        dailyData: codingStats,
+        totalMinutesCoded: codingStats.reduce(
+          (sum, day) => sum + day.total_duration,
+          0,
+        ),
+        averageDailyMinutes: Math.round(
+          codingStats.reduce((sum, day) => sum + day.total_duration, 0) /
+            codingStats.length,
+        ),
+      },
       chartData: {
+        // GitHub data
         languageDistribution: Object.entries(languageStats).map(
           ([language, count]) => ({
             language,
@@ -69,7 +94,15 @@ app.get("/api/dashboard", async (req, res) => {
           }),
         ),
         recentActivity: activityTimeline,
-        // Add any other derived chart data you need
+
+        // Coding stats data
+        codingLanguageDistribution: Object.entries(languageDistribution).map(
+          ([language, minutes]) => ({
+            language,
+            minutes,
+          }),
+        ),
+        dailyCodingTime,
       },
     };
 
@@ -87,4 +120,3 @@ app.get("/api/dashboard", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-e;
