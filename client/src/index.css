@@ -5,6 +5,10 @@
   --color-primary: #17ff9a;
 }
 
+body {
+  background-color: #000;
+}
+
 h1,
 h2,
 p,
