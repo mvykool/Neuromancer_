@@ -1,5 +1,6 @@
 import { RequestOptions } from "../types/types";
 
+// -- TODO: create env. and add URL
 const API_URL = import.meta.env.VITE_API_URl || "https://api.example.com";
 
 async function fetchClient(endpoint: string, options: RequestOptions = {}) {
@@ -36,5 +37,4 @@ async function fetchClient(endpoint: string, options: RequestOptions = {}) {
 
 export default {
   get: (endpoint: string) => fetchClient(endpoint),
-  delete: (endpoint: string) => fetchClient(endpoint, { method: "DELETE" }),
 };
