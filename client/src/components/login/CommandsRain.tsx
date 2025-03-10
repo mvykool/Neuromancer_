@@ -1,6 +1,6 @@
 import { JSX, useEffect, useRef, useState } from "react";
-import { LineHighlight } from "../../types";
 import { outputLines } from "../../utils/outputlines";
+import { LineHighlight } from "../../types/types";
 
 const CommandsRain = () => {
   const [visibleLines, setVisibleLines] = useState<LineHighlight[]>([]);
