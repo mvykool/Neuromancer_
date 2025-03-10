@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const FloatingWindow = () => {
   const navigate = useNavigate();
 
-  const goHome = () => navigate("/");
+  const goHome = () => navigate("/home");
 
   return (
     <div className="top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 absolute w-full">

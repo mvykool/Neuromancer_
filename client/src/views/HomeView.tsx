@@ -1,5 +1,5 @@
 const HomeView = () => {
-  return <></>;
+  return <main className="bg-black h-screen w-full"></main>;
 };
 
 export default HomeView;
