@@ -4,7 +4,7 @@ const NavExit = () => {
   return (
     <a
       href="/login"
-      className="text-primary text-lg border border-primary px-8 py-2"
+      className="text-primary text-lg border-4 border-primary px-8 py-2"
     >
       {strings.nav.exit}
     </a>

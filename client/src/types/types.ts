@@ -8,3 +8,7 @@ export interface LineHighlight {
   visible?: boolean;
   id?: number;
 }
+
+export interface RequestOptions extends RequestInit {
+  headers?: Record<string, string>;
+}

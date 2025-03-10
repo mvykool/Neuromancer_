@@ -6,4 +6,10 @@ export const strings = {
   nav: {
     exit: "Exit",
   },
+  home: {
+    leftPane: {
+      id: "身元 Identity",
+      altPic: "User picture",
+    },
+  },
 };
