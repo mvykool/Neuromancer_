@@ -16,7 +16,7 @@ const HomeView = () => {
 
       {/* Scrollable content */}
       <div className="flex w-full min-h-[90%]">
-        <LeftPane name={data.name} picture={data.picture} />
+        <LeftPane name={data.profile.username} picture={data.profile.avatar} />
         <MiddlePane />
         <RightPane />
       </div>

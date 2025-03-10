@@ -28,7 +28,7 @@ async function fetchClient(endpoint: string, options: RequestOptions = {}) {
       return null;
     }
 
-    return response;
+    return await response.json();
   } catch (error) {
     console.error("API request failed:", error);
     throw error;

@@ -17,7 +17,7 @@ const LeftPane = ({ name, picture }: LeftPaneProps) => {
       <img src={picture} alt={strings.home.leftPane.altPic} />
       {/* Name */}
       <div>
-        <p>{name}</p>
+        <p className="text-white">{`@${name}`}</p>
       </div>
       j{/* Radar */}
       <div>radar</div>
