@@ -3,4 +3,7 @@ export const strings = {
     title: "Neuromancer_",
     btn: "Enter",
   },
+  nav: {
+    exit: "Exit",
+  },
 };
