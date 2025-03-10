@@ -3,6 +3,7 @@
 
 h1,
 h2,
-p {
+p,
+button {
   font-family: "Orbitron", sans-serif;
 }
