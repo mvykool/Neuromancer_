@@ -1,7 +1,7 @@
 import { RequestOptions } from "../types/types";
 
 // -- TODO: create env. and add URL
-const API_URL = import.meta.env.VITE_API_URl || "https://api.example.com";
+const baseUrl = import.meta.env.VITE_URL;
 
 async function fetchClient(endpoint: string, options: RequestOptions = {}) {
   const headers = {
@@ -15,7 +15,7 @@ async function fetchClient(endpoint: string, options: RequestOptions = {}) {
   };
 
   try {
-    const response = await fetch(`${API_URL}${endpoint}`, config);
+    const response = await fetch(`${baseUrl}${endpoint}`, config);
 
     // Handle non-2xx responses
     if (!response.ok) {
@@ -28,7 +28,7 @@ async function fetchClient(endpoint: string, options: RequestOptions = {}) {
       return null;
     }
 
-    return await response.json();
+    return response;
   } catch (error) {
     console.error("API request failed:", error);
     throw error;
