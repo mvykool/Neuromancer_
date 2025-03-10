@@ -1,4 +1,7 @@
 import Navbar from "../components/navbar/Navbar";
+import LeftPane from "../components/panes/LeftPane";
+import MiddlePane from "../components/panes/MiddlePane";
+import RightPane from "../components/panes/RightPane";
 
 const HomeView = () => {
   return (
@@ -6,7 +9,11 @@ const HomeView = () => {
       <Navbar />
 
       {/* Scrollable content */}
-      <div className=" w-full border border-amber-500 overflow-y-auto h-full rel"></div>
+      <div className="flex w-full min-h-[90%]">
+        <LeftPane />
+        <MiddlePane />
+        <RightPane />
+      </div>
     </main>
   );
 };
