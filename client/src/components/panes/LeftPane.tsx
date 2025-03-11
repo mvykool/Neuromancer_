@@ -11,7 +11,7 @@ const LeftPane = ({ name, picture }: LeftPaneProps) => {
       {/* Radar */}
       <div className="py-5 w-full bg-primary  flex justify-center items-center">
         {" "}
-        <p className="text-lg">{strings.home.leftPane.id}</p>
+        <p className="text-2xl">{strings.home.leftPane.id}</p>
       </div>
       {/* img */}
       <img
