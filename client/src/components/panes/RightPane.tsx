@@ -2,7 +2,7 @@ import { strings } from "../../constants/strings";
 
 const RightPane = () => {
   return (
-    <div className="gap-3 flex flex-col relative border border-green-500 w-4/12">
+    <div className="gap-3 flex flex-col relative w-4/12">
       {/*status*/}
       <div className="py-5 w-full border-4 border-primary  flex justify-center items-center">
         <p className="text-primary tracking-wider text-xl">
@@ -16,7 +16,7 @@ const RightPane = () => {
         className="h-28 w-full object-cover object-top"
       />
       {/* status name */}
-      <div className="py-5 w-full border-4 border-primary  flex justify-center items-center">
+      <div className="py-3 w-full border-4 border-primary  flex justify-center items-center">
         <p className="text-primary tracking-wider text-xl">
           {strings.home.rightPane.name}
         </p>
@@ -33,6 +33,17 @@ const RightPane = () => {
       {/* badges */}
       <div className="py-2 w-full flex justify-start pl-4 bg-primary items-center">
         <p className="text-black tracking-wider text-xl">Badges:</p>
+      </div>
+      <div className="grid grid-cols-4 gap-3">
+        <div className="border-2 border-primary size-16">01</div>
+        <div className="border-2 border-primary size-16">01</div>
+        <div className="border-2 border-primary size-16">01</div>
+        <div className="border-2 border-primary size-16">01</div>
+        <div className="border-2 border-primary size-16">01</div>
+        <div className="border-2 border-primary size-16">01</div>
+        <div className="border-2 border-primary size-16">01</div>
+        <div className="border-2 border-primary size-16">01</div>
+        <div className="border-2 border-primary size-16">01</div>
       </div>
     </div>
   );
