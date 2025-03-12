@@ -39,8 +39,7 @@ const RightPane = () => {
         <div className="border-2 border-primary size-16">01</div>
         <div className="border-2 border-primary size-16">01</div>
         <div className="border-2 border-primary size-16">01</div>
-        <div className="border-2 border-primary size-16">01</div>
-        <div className="border-2 border-primary size-16">01</div>
+
         <div className="border-2 border-primary size-16">01</div>
         <div className="border-2 border-primary size-16">01</div>
         <div className="border-2 border-primary size-16">01</div>
