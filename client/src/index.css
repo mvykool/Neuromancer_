@@ -16,3 +16,96 @@ a,
 button {
   font-family: "Orbitron", sans-serif;
 }
+
+/* Dashboard.css */
+:root {
+  --neon-green: #00ff9d;
+  --neon-blue: #00c3ff;
+  --background-dark: #000000;
+  --background-medium: #111111;
+  --border-color: var(--neon-green);
+  --text-color: var(--neon-green);
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+}
+
+/* Recent Activity */
+.activity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.activity-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0, 255, 157, 0.2);
+}
+
+.repo-name {
+  color: var(--neon-blue);
+}
+
+.update-date {
+  opacity: 0.7;
+}
+
+/* Animation */
+@keyframes scan-line {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Loading state */
+.loading {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: var(--neon-green);
+  text-shadow: 0 0 10px rgba(0, 255, 157, 0.7);
+}
+
+/* Error state */
+.error {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #ff3e3e;
+  text-shadow: 0 0 10px rgba(255, 62, 62, 0.7);
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "identity status"
+      "radar sphere"
+      "username activity"
+      "languages languages"
+      "recent recent";
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "identity"
+      "status"
+      "radar"
+      "sphere"
+      "username"
+      "activity"
+      "languages"
+      "recent";
+  }
+}
