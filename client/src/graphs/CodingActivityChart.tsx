@@ -89,7 +89,7 @@ export const CodingActivityChart: React.FC<CodingActivityChartProps> = ({
   }, [data]);
 
   return (
-    <ResponsiveContainer width="30%" height="30%">
+    <ResponsiveContainer width="100%" height="50%">
       <LineChart data={hourlyData}>
         <CartesianGrid strokeDasharray="3 3" stroke="rgba(0, 255, 157, 0.2)" />
         <XAxis

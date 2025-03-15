@@ -11,7 +11,12 @@ export const Sphere: React.FC = () => {
 
     // Initialize scene
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(
+      50,
+      mountRef.current.clientWidth / mountRef.current.clientHeight,
+      0.8,
+      1000,
+    );
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(
       mountRef.current.clientWidth,
@@ -19,24 +24,20 @@ export const Sphere: React.FC = () => {
     );
     mountRef.current.appendChild(renderer.domElement);
 
-    // Create sphere
-    const geometry = new THREE.SphereGeometry(5, 32, 32);
+    const geometry = new THREE.SphereGeometry(5, 20, 20);
     const material = new THREE.MeshBasicMaterial({
-      color: 0x0066ff,
+      color: 0xff2df1,
       wireframe: true,
       transparent: true,
-      opacity: 0.7,
+      opacity: 0.9,
     });
-
     const sphere = new THREE.Mesh(geometry, material);
     scene.add(sphere);
 
-    camera.position.z = 15;
-
-    // Animation
+    camera.position.set(0, 9, 12);
+    camera.lookAt(0, 0, 0);
     const animate = () => {
       requestAnimationFrame(animate);
-      sphere.rotation.x += 0.005;
       sphere.rotation.y += 0.005;
       renderer.render(scene, camera);
     };
@@ -46,8 +47,6 @@ export const Sphere: React.FC = () => {
     // Handle resize
     const handleResize = () => {
       if (!mountRef.current) return;
-      camera.aspect =
-        mountRef.current.clientWidth / mountRef.current.clientHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(
         mountRef.current.clientWidth,
@@ -66,5 +65,5 @@ export const Sphere: React.FC = () => {
     };
   }, []);
 
-  return <div ref={mountRef} style={{ width: "30%", height: "30%" }} />;
+  return <div ref={mountRef} style={{ width: "30%", height: "40%" }} />;
 };
