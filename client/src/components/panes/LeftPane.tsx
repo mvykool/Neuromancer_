@@ -7,11 +7,11 @@ interface LeftPaneProps {
 
 const LeftPane = ({ name, picture }: LeftPaneProps) => {
   return (
-    <div className="gap-3 relative flex flex-col w-4/12">
+    <div className="gap-4 relative flex flex-col w-4/12 pr-3">
       {/* Radar */}
-      <div className="py-5 w-full bg-primary  flex justify-center items-center">
+      <div className="py-2 w-full bg-primary  flex justify-center items-center">
         {" "}
-        <p className="text-2xl">{strings.home.leftPane.id}</p>
+        <p className="text-xl">{strings.home.leftPane.id}</p>
       </div>
       {/* img */}
       <img

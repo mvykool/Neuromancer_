@@ -1,4 +1,4 @@
-import { useDaily } from "../services/hooks/useInfo";
+import { useDaily } from "../services/hooks/useDaily.ts";
 import { FileType } from "../types/types";
 import { languages } from "../utils/codingTracker";
 import { excludeFileTypes } from "../utils/exculeTypes";
@@ -21,8 +21,8 @@ const DailyCoding = () => {
     );
 
   return (
-    <section>
-      <div className="flex items-center border-4 justify-around border-gray-400">
+    <section className=" border-4 border-gray-400 p-2">
+      <div className="flex items-center justify-around">
         <img src="/nvim.jpeg" alt="" className="object-cover h-24 w-24 p-2" />
 
         <div className="flex flex-col">
@@ -37,7 +37,7 @@ const DailyCoding = () => {
       </div>
       {isLoading && <div>Showing cached data...</div>}
       <div className="w-full">
-        <ul className="w-full flex flex-col gap-2 ">
+        <ul className="w-full flex flex-col gap-2 mt-4 ">
           {hasValidFileTypes ? (
             dailyData?.file_types.map((file: FileType, index: number) => {
               const fileInfo = languages.find(
@@ -50,13 +50,14 @@ const DailyCoding = () => {
               return (
                 <li
                   key={index}
-                  style={{ backgroundColor }}
-                  className="px-1 md:px-1 py-1 w-auto md:w-auto flex items-start md:items-center gap-0 md:gap-1"
+                  style={{ border: `2px solid ${backgroundColor}` }}
+                  className="flex justify-between items-center"
                 >
-                  <span className="text-xs md:text-sm">{fileName}:</span>
-                  <span className="text-xs md:text-sm">
-                    {formattedDuration}
-                  </span>
+                  <p className="text-white flex gap-2 tracking-normal text-sm">
+                    <span>{fileName}:</span>
+                    <span>{formattedDuration}</span>
+                  </p>
+                  <div className="w-2/6 h-5" style={{ backgroundColor }}></div>
                 </li>
               );
             })

@@ -11,10 +11,15 @@ body {
 
 h1,
 h2,
+h3,
 p,
 a,
 button {
   font-family: "Orbitron", sans-serif;
+}
+
+span {
+  font-family: "JetBrains Mono", "Courier New", monospace;
 }
 
 /* Dashboard.css */
@@ -138,4 +143,74 @@ button {
       rgba(128, 128, 128, 0.3) 0.5px,
       transparent 0.5px
     );
+}
+
+.recharts-wrapper {
+  background-image:
+    linear-gradient(rgba(20, 30, 40, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 30, 40, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: center center;
+}
+
+.filter.drop-shadow-glow {
+  filter: drop-shadow(0px 0px 8px rgba(100, 255, 100, 0.3));
+}
+
+.recharts-pie-label-text {
+  font-size: 11px;
+  font-weight: bold;
+  fill: white;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+/* From Uiverse.io by mahiatlinux */
+.loader {
+  display: flex;
+  justify-content: space-around;
+  align-items: end;
+}
+
+.line {
+  width: 1em;
+  height: 1em;
+  position: relative;
+  background-color: #000000; /* Black bars */
+  outline: 3px solid #ffffff; /* Thick white outline */
+  animation-name: a;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.l1 {
+  animation-delay: 0.4s;
+}
+
+.l2 {
+  animation-delay: 0.8s;
+}
+
+.l3 {
+  animation-delay: 1.2s;
+}
+
+.l4 {
+  animation-delay: 1.6s;
+}
+
+.l5 {
+  animation-delay: 2s;
+}
+
+@keyframes a {
+  0% {
+    height: 1em;
+  }
+  50% {
+    height: 3em;
+    transform: translateY(-30%);
+  }
+  100% {
+    height: 1em;
+  }
 }

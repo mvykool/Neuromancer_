@@ -2,9 +2,9 @@ import { strings } from "../../constants/strings";
 
 const RightPane = () => {
   return (
-    <div className="gap-3 flex flex-col relative w-4/12">
+    <div className="gap-4 pl-2 flex flex-col relative w-4/12">
       {/*status*/}
-      <div className="py-5 w-full border-4 border-primary  flex justify-center items-center">
+      <div className="py-3 w-full border-4 border-primary  flex justify-center items-center">
         <p className="text-primary tracking-wider text-xl">
           {strings.home.rightPane.status}
         </p>

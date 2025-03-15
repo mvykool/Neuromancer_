@@ -3,7 +3,7 @@ export const languages = [
   { type: "markdown", name: "MD", color: "#8c7c74" },
   { type: "lua", name: "Lua", color: "#000080" },
   { type: "sh", name: "sh", color: "#787878" },
-  { type: "css", name: "CSS", color: "#461aa3" },
+  { type: "css", name: "CSS", color: "#662f9a" },
   { type: "yaml", name: "YAML", color: "#CA181D" },
   { type: "nix", name: "Nix", color: "#7E7EFF" },
   { type: "typescriptreact", name: "TSX", color: "#4d8ddb" },

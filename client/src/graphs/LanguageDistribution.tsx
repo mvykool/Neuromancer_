@@ -40,10 +40,10 @@ const LanguagePieChart: React.FC<LanguagePieChartProps> = ({
   const languageColors: Record<string, string> = {
     TypeScript: "#3178C6",
     JavaScript: "#F7DF1E",
-    CSS: "#264de4",
+    CSS: "#662f9a",
     HTML: "#E34F26",
     Python: "#3776AB",
-    "C#": "#239120",
+    "C#": "#8165e1",
     Lua: "#000080",
     SCSS: "#CC6699",
     Shell: "#4EAA25",
@@ -92,11 +92,11 @@ const LanguagePieChart: React.FC<LanguagePieChartProps> = ({
     const { payload } = props;
 
     return (
-      <ul className="flex flex-wrap justify-center gap-3 mt-3">
+      <ul className="flex flex-col gap-2 absolute right-0 top-1/2 transform -translate-y-1/2 ">
         {payload.map((entry: any, index: number) => (
           <li
             key={`legend-${index}`}
-            className="flex items-center font-mono text-sm"
+            className="flex items-center font-mono text-sm items-center"
           >
             <div
               className="w-3 h-3 mr-2"
@@ -111,7 +111,6 @@ const LanguagePieChart: React.FC<LanguagePieChartProps> = ({
       </ul>
     );
   };
-
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64 bg-gray-900 text-green-400 p-6 rounded-lg border border-gray-800">
@@ -123,12 +122,12 @@ const LanguagePieChart: React.FC<LanguagePieChartProps> = ({
   }
 
   return (
-    <div className="w-full flex flex-col items-center bg-gray-900 p-6 rounded-lg border border-gray-800">
-      <h2 className="text-green-400 text-xl font-mono font-bold mb-4">
+    <div className="w-full flex flex-col items-center p-6 border border-gray-400">
+      <h2 className="text-green-400 text-xl font-mono font-bold">
         LANGUAGE.DISTRIBUTION
       </h2>
 
-      <div className="w-full h-96">
+      <div className="w-full h-[55vh]">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
@@ -138,12 +137,9 @@ const LanguagePieChart: React.FC<LanguagePieChartProps> = ({
               cx="50%"
               cy="50%"
               outerRadius={120}
-              innerRadius={70} // Make it a donut chart for more cyberpunk feel
-              paddingAngle={2}
-              strokeWidth={2}
+              innerRadius={60}
+              paddingAngle={3}
               stroke="#121212"
-              // label={(entry) => `${entry.language} (${entry.count})`}
-              // labelLine={{ stroke: "#666", strokeWidth: 1 }}
             >
               {pieData.map((entry, index) => (
                 <Cell
@@ -157,42 +153,19 @@ const LanguagePieChart: React.FC<LanguagePieChartProps> = ({
               ))}
             </Pie>
             <Tooltip content={<CustomTooltip />} />
-            <Legend content={<CustomLegend />} />
+            <Legend
+              content={<CustomLegend />}
+              layout="vertical"
+              align="left"
+              verticalAlign="middle"
+              wrapperStyle={{
+                width: "150px",
+              }}
+            />
           </PieChart>
         </ResponsiveContainer>
       </div>
-
-      {/* Center text overlay */}
-      <div
-        className="absolute pointer-events-none font-mono text-white text-center"
-        style={{
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          marginTop: "40px", // Adjust to center in the pie
-        }}
-      ></div>
-
       <style>{`
-        .recharts-wrapper {
-          background-image:
-            linear-gradient(rgba(20, 30, 40, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(20, 30, 40, 0.1) 1px, transparent 1px);
-          background-size: 20px 20px;
-          background-position: center center;
-        }
-
-        .filter.drop-shadow-glow {
-          filter: drop-shadow(0px 0px 8px rgba(100, 255, 100, 0.3));
-        }
-
-        .recharts-pie-label-text {
-          font-family: monospace;
-          font-size: 11px;
-          font-weight: bold;
-          fill: white;
-          text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-        }
       `}</style>
     </div>
   );
