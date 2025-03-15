@@ -14,7 +14,7 @@ export const RecentActivity: React.FC<RecentActivityProps> = ({ activity }) => {
   };
 
   return (
-    <div className="w-2/6 p-2">
+    <div className="w-full p-3">
       <h3 className="text-primary">Recent Activity</h3>
       <ul className="activity-list">
         {activity.map((item, index) => (

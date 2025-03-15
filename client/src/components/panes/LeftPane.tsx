@@ -24,7 +24,7 @@ const LeftPane = ({ name, picture }: LeftPaneProps) => {
         <p className="text-primary tracking-wider text-lg">{`@${name}`}</p>
       </div>
       {/* Radar */}
-      <div className="h-64 w-full overflow-hidden">
+      <div className="h-full w-full overflow-hidden border-2 border-primary">
         <video className=" w-full h-full object-cover" autoPlay muted loop>
           <source src="waveradiant.mp4" type="video/mp4" />
         </video>

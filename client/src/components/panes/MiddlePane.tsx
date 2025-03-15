@@ -1,3 +1,4 @@
+import DailyCoding from "../../graphs/DailyCoding";
 import GitHubDashboard from "../../graphs/GithubCommit";
 import LanguageFlowChart from "../../graphs/LanguageDistribution";
 import { RadarChart } from "../../graphs/RadarChart";
@@ -17,11 +18,14 @@ const MiddlePane = () => {
     <div className="no-scrollbar w-full flex flex-wrap border border-green-500 overflow-y-auto h-full rel">
       <RadarChart data={data.chartData.languageDistribution} />
       <Sphere />
-      <div className="h-[60%] w-4/6 p-4">
+      <div className="h-[60%] w-[70%]">
         <GitHubDashboard />
         <LanguageFlowChart data={languageData} loading={isLoading} />
       </div>
-      <RecentActivity activity={data.chartData.recentActivity} />
+      <div className="w-[30%]">
+        <DailyCoding />
+        <RecentActivity activity={data.chartData.recentActivity} />
+      </div>
     </div>
   );
 };

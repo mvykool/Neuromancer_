@@ -63,16 +63,7 @@ const GitHubDashboard = () => {
   }
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="mb-4 flex justify-end">
-        <button
-          onClick={handleRefresh}
-          className="px-3 py-1 bg-green-900 text-green-400 rounded hover:bg-green-800 font-mono text-sm border border-green-700"
-        >
-          REFRESH DATA
-        </button>
-      </div>
-
+    <div className="w-full">
       <CyberpunkCommitChart
         data={data?.chartData.dailyCommits || []}
         loading={isLoading}

@@ -12,3 +12,15 @@ export interface LineHighlight {
 export interface RequestOptions extends RequestInit {
   headers?: Record<string, string>;
 }
+
+export interface FileType {
+  type: string;
+  duration: number;
+  name?: string;
+  color?: string;
+}
+
+export interface CodingData {
+  total_duration: number;
+  file_types: FileType[];
+}

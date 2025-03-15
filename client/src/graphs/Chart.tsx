@@ -104,7 +104,7 @@ const CyberpunkCommitChart: React.FC<ChartProps> = ({
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
-        <div className="bg-black bg-opacity-90 text-green-400 p-3 border border-green-500 rounded shadow-lg backdrop-blur-sm">
+        <div className="bg-black bg-opacity-90 text-green-400  border border-green-500  backdrop-blur-sm">
           <div className="border-b border-green-500 pb-2 mb-2">
             <p className="font-mono text-sm">{data.date}</p>
             <p className="font-bold text-xl">
@@ -198,7 +198,7 @@ const CyberpunkCommitChart: React.FC<ChartProps> = ({
       : "";
 
   return (
-    <div className="w-full bg-black rounded-lg border border-green-700 overflow-hidden">
+    <div className="w-full bg-black  border border-green-700 overflow-hidden">
       {/* Header with digital count display */}
       <div className="p-4 border-b border-green-700 flex justify-between items-center">
         <div className="flex items-center">

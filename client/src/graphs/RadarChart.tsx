@@ -22,7 +22,7 @@ export const RadarChart: React.FC<RadarChartProps> = ({ data }) => {
   }));
 
   return (
-    <div className="h-[40%] w-[70%] border-2 border-primary radar">
+    <div className="h-[40%] w-[70%] border-3 border-blue-700 radar">
       <ResponsiveContainer width="100%" height="100%">
         <RechartsRadarChart
           cx="50%"
