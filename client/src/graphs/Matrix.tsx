@@ -110,6 +110,7 @@ const MatrixTerminal: React.FC<MatrixTerminalProps> = ({
 
   return (
     <div className="w-full h-[40vh] flex flex-col border border-green-500 bg-black  overflow-hidden">
+      {" "}
       {/* Terminal title bar */}
       <div className="flex items-center px-4 py-2 bg-green-800 border-b border-green-500">
         <div className="flex space-x-2 mr-2"></div>
@@ -117,7 +118,6 @@ const MatrixTerminal: React.FC<MatrixTerminalProps> = ({
           {title}
         </div>
       </div>
-
       {/* Matrix rain container */}
       <div className="flex-1 overflow-hidden">
         <canvas ref={canvasRef} className="w-full h-full" />

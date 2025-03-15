@@ -1,7 +1,6 @@
 import Navbar from "../components/navbar/Navbar";
 import LeftPane from "../components/panes/LeftPane";
 import MiddlePane from "../components/panes/MiddlePane";
-import RightPane from "../components/panes/RightPane";
 import { useInfo } from "../services/hooks/useInfo";
 
 const HomeView = () => {
@@ -18,7 +17,6 @@ const HomeView = () => {
       <div className="flex gap-4 w-full min-h-full">
         <LeftPane name={data.profile.username} picture={data.profile.avatar} />
         <MiddlePane />
-        <RightPane />
       </div>
     </main>
   );
