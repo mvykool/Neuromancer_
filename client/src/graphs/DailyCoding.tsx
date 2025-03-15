@@ -22,8 +22,10 @@ const DailyCoding = () => {
 
   return (
     <section>
-      <div className="flex mt-3 md:mt-7 mb-3 items-center">
-        <div className="flex flex-col ml-3">
+      <div className="flex items-center border-4 justify-around border-gray-400">
+        <img src="/nvim.jpeg" alt="" className="object-cover h-24 w-24 p-2" />
+
+        <div className="flex flex-col">
           <span className="text-primary text-2xl">ℕ𝕖𝕠𝕍𝕚𝕞</span>
           <p className="text-white text-sm">Coding Session:</p>
           <p className="text-white text-sm tracking-wide">
@@ -35,7 +37,7 @@ const DailyCoding = () => {
       </div>
       {isLoading && <div>Showing cached data...</div>}
       <div className="w-full">
-        <ul className="w-full flex flex-col gap-2 px-2">
+        <ul className="w-full flex flex-col gap-2 ">
           {hasValidFileTypes ? (
             dailyData?.file_types.map((file: FileType, index: number) => {
               const fileInfo = languages.find(
